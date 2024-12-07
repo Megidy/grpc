@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option go_package = "github.com/Megidy/eventsMicroservice/common/notifications";
+
+service NotificationService {
+  rpc NotifyUser (NotifyUserRequest) returns (NotifyUserResponse);
+}
+
+message NotifyUserRequest {
+  string user_id = 1;
+  string message = 2;
+}
+
+message NotifyUserResponse {
+    string id =1;
+}

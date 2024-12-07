@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+option go_package = "github.com/Megidy/eventsMicroservice/common/events";
+
+service EventService {
+    rpc CreateEvent (CreateEventRequest) returns (CreateEventResponse);
+    rpc UpdateEvent (UpdateEventRequest) returns (UpdateEventResponse);
+    rpc GetEvent (GetEventByIDRequest) returns (GetEventByIDResponse);
+  }
+
+  message Event {
+    string id = 1;
+    string name = 2;
+    string date = 3;
+    repeated string players = 4; 
+  }
+message CreateEventRequest {   
+    Event event =1;
+  }
+  
+message CreateEventResponse {
+    string status = 1;
+  }
+  
+message UpdateEventRequest {
+    string id = 1;
+    Event event = 2;
+  }
+message UpdateEventResponse {
+    string status=1;
+}
+
+  
+message GetEventByIDRequest{
+    string id =1;
+}
+message GetEventByIDResponse{
+    Event event =1;
+}
